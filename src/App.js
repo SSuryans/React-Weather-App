@@ -8,12 +8,12 @@ function App() {
   const [weather, setWeather] = useState({});
 
   const search = evt => {
-    if(evt.key==="Enter"){
+    if(evt.key==='Enter'){
       fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
-        setQuery('')
+        setQuery('');
         console.log(result);
       });
     }
@@ -25,16 +25,26 @@ function App() {
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
-    return `${day} ${date} ${month} ${year}`
+    return `${day}, ${date} ${month} ${year}`
   }
+  
   return (
     <div className={
       (typeof weather.main != "undefined")
        ? ((weather.weather[0].main === "Clouds")
-        ?  'app warm'
+        ?  'app clouds '
+        :(weather.weather[0].main === "Mist")
+        ? 'app mist'
+        :(weather.weather[0].main === "Haze")
+        ? 'app haze'
+        :(weather.weather[0].main === "Clear")
+        ? 'app clear'
+        :(weather.weather[0].main === "Rain")
+        ? 'app rain'
         :'app')
       :'app'}>
       <main>
+      <div className="background"></div>
         <div className="search-box">
           <input
             type="text"
@@ -58,6 +68,9 @@ function App() {
         <div className="weather-box">
           <div className="temp">
             {Math.round (weather.main.temp)}°C
+          </div>
+          <div className="temp_feels_like">
+          {Math.round(weather.main.feels_like)}°C
           </div>
           <div className="weather">{weather.weather[0].main} </div>
         </div>

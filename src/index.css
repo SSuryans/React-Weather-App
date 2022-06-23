@@ -10,27 +10,39 @@ body
 }
 .app
 {
-  background-image:url("D:\Coding\React Weather App\weather-app\Assets\cold.jpg") ;
+  background-image:url("D:\Coding\React Weather App\weather-app\Assets\world.gif");
   background-size: cover;
   background-position: bottom;
   transition: 0.4s ease-out;
 }
-.app.warm
+.app.clear
 {
   background-image: url("D:\Coding\React Weather App\weather-app\Assets\warm.jpg");
 }
-.app.clear
+.app.rain
 {
   background-image: url("D:\Coding\React Weather App\weather-app\Assets\rain.jpg");
+}
+.app.mist
+{
+  background-image: url("D:\Coding\React Weather App\weather-app\Assets\mist.jpg");
+}
+.app.clouds
+{
+  background-image: url("D:\Coding\React Weather App\weather-app\Assets\clouds.jpg");
+}
+.app.haze
+{
+  background-image: url("D:\Coding\React Weather App\weather-app\Assets\haze.jpg");
 }
 main
 {
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.4));
   padding: 25px;
 }
 .search-box
 {
+  opacity: 100%;
   width: 100%;
   margin: 0 0 75px;
 }
@@ -39,7 +51,7 @@ main
   display: block;
   width: 100%;
   padding: 15px;
-
+  opacity: 100%;
   appearance: none;
   background: none;
   border: none;
